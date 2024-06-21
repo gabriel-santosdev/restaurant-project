@@ -1,13 +1,12 @@
 <template>
     <img class="logo" src="../assets/logo-restaurant.png" />
-    <h1 class="text">Sign Up</h1>
-    <div class="register">
-        <input type="text" v-model="name" placeholder="Enter Name" />
+    <h1 class="text">Login</h1>
+    <div class="login">
         <input type="text" v-model="email" placeholder="Enter E-mail" />
         <input type="password" v-model="password" placeholder="Enter Password" />
-        <button @click="signUp">Sign Up</button>
+        <button @click="login">Login</button>
         <p>
-            <router-link to="/login">Login</router-link>
+            <router-link to="/sign-up">Sign Up</router-link>
         </p>
     </div>
 </template>
@@ -18,32 +17,25 @@ import axios from 'axios';
 import { useRouter } from 'vue-router';
 
 export default {
-    name: 'SignUp',
+    name: 'LoginPage',
     setup() {
-        const name = ref('');
         const email = ref('');
         const password = ref('');
-
         const router = useRouter();
 
-        const signUp = async () => {
+        const login = async () => {
             try {
-                let result = await axios.post("http://localhost:3000/users", {
-                    name: name.value,
-                    email: email.value,
-                    password: password.value
-                });
+                let result = await axios.get(`http://localhost:3000/users?email=${email.value}&password=${password.value}`);
 
-                console.warn(result);
-
-                if (result.status === 201) {
-                    localStorage.setItem("user-info", JSON.stringify(result.data));
+                if (result.status === 200 && result.data.length > 0) {
+                    localStorage.setItem("user-info", JSON.stringify(result.data[0]));
                     router.push({ name: 'HomePage' });
                 }
+                console.warn(result);
             } catch (error) {
-                console.error("Sign up failed:", error);
+                console.error("Login failed:", error);
             }
-        }
+        };
 
         onMounted(() => {
             let user = localStorage.getItem('user-info');
@@ -53,10 +45,9 @@ export default {
         });
 
         return {
-            name,
             email,
             password,
-            signUp
+            login
         }
     }
 }
