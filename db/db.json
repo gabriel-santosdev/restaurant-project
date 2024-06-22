@@ -60,5 +60,25 @@
       "email": "yohan123@hotmail.com",
       "password": "yohan123"
     }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Burguer King",
+      "contact": 11960606060,
+      "address": "Rua das Flores, 123"
+    },
+    {
+      "id": 2,
+      "name": "Bistro 605",
+      "contact": 11960706060,
+      "address": "Rua das Rosas, 605"
+    },
+    {
+      "id": 3,
+      "name": "KFC",
+      "contact": 11969996060,
+      "address": "Rua das Petalas, 890"
+    }
   ]
 }

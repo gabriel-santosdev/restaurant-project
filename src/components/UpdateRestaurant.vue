@@ -1,35 +1,28 @@
 <template>
     <Header />
-    <h1>Hi {{ name }}, Welcome on Home Page</h1>
+    <h1>Hi User, Welcome on Update Restaurant Page</h1>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 import Header from './Header.vue';
 
 export default {
-    name: 'HomePage',
+    name: 'UpdateRestaurant',
     components: {
         Header
     },
     setup() {
         const router = useRouter();
 
-        const name = ref('');
-
         onMounted(() => {
             let user = localStorage.getItem('user-info');
-            name.value = JSON.parse(user).name;
             if (!user) {
                 router.push({ name: 'SignUp' });
             }
         });
-
-        return {
-            name
-        }
     }
 }
 </script>
