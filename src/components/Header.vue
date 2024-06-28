@@ -2,7 +2,6 @@
     <div class="nav">
         <router-link to="/">Home</router-link>
         <router-link to="/add-restaurant">Add Restaurant</router-link>
-        <router-link to="/update-restaurant">Update Restaurant</router-link>
         <div class="navbutton">
             <a href="#" @click="logout">Logout</a>
         </div>

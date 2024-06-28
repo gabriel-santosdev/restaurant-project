@@ -72,13 +72,37 @@
       "id": 2,
       "name": "Bistro 605",
       "contact": 11960706060,
-      "address": "Rua das Rosas, 605"
+      "address": "Rua das Flores, 605"
     },
     {
       "id": 3,
       "name": "KFC",
       "contact": 11969996060,
-      "address": "Rua das Petalas, 890"
+      "address": "Rua das Flores, 890"
+    },
+    {
+      "id": "f351",
+      "name": "RCB restaurant",
+      "address": "Rua anhumas 78",
+      "contact": "96569865664"
+    },
+    {
+      "id": "748a",
+      "name": "Starbucks",
+      "address": "Jundiai Shoppinh",
+      "contact": "44479999"
+    },
+    {
+      "id": "a852",
+      "name": "Starbucks",
+      "address": "Jundiai Shoppinh",
+      "contact": "44479999"
+    },
+    {
+      "id": "9c4b",
+      "name": "teste",
+      "address": "safsdj vs 654",
+      "contact": "4165655455448"
     }
   ]
 }

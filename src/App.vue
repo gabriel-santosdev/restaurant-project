@@ -33,7 +33,8 @@ body {
 }
 
 .register input,
-.login input {
+.login input,
+.add input {
   width: 300px;
   height: 40px;
   padding-left: 20px;
@@ -45,7 +46,8 @@ body {
 }
 
 .register button,
-.login button {
+.login button,
+.add button {
   font-family: "Open sans", sans-serif;
   font-weight: bold;
   font-size: 14px;
