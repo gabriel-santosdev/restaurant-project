@@ -33,7 +33,6 @@ export default {
         })
 
         const addRestaurant = async () => {
-            console.warn(restaurant)
             const result = await axios.post("http://localhost:3000/restaurants", {
                 name: restaurant.name,
                 address: restaurant.address,
@@ -41,7 +40,7 @@ export default {
             })
 
             if (result.status == 201) {
-                router.push({ name: 'Home' })
+                router.push({ name: 'HomePage' })
             }
         }
         onMounted(() => {

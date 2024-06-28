@@ -14,7 +14,10 @@
             <td>{{ item.name }}</td>
             <td>{{ item.address }}</td>
             <td>{{ item.contact }}</td>
-            <td><router-link :to="'/update-restaurant/' + item.id">Update</router-link></td>
+            <td>
+                <router-link :to="'/update-restaurant/' + item.id">Update</router-link>
+                <button @click="deleteRestaurant(item.id)">Delete</button>
+            </td>
         </tr>
     </table>
 </template>
@@ -37,7 +40,15 @@ export default {
         const name = ref('');
         const restaurant = ref([]);
 
-        onMounted(async () => {
+        const deleteRestaurant = async (id) => {
+            let result = await axios.delete("http://localhost:3000/restaurants/" + id)
+
+            if (result.status == 200) {
+                loadData()
+            }
+        }
+
+        const loadData = async () => {
             let user = localStorage.getItem('user-info');
             name.value = JSON.parse(user).name;
             if (!user) {
@@ -46,11 +57,17 @@ export default {
 
             let result = await axios.get("http://localhost:3000/restaurants")
             restaurant.value = result.data;
+        }
+
+        onMounted(async () => {
+            await loadData()
         });
 
         return {
             name,
-            restaurant
+            restaurant,
+            deleteRestaurant,
+            loadData
         }
     }
 }

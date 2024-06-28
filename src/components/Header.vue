@@ -19,7 +19,6 @@ export default {
 
         // Função de logout
         const logout = () => {
-            console.warn('logout');
             localStorage.clear();
             router.push('/login');
         };
